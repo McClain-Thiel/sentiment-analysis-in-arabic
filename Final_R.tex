@@ -1,0 +1,551 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{arabtex}
+\usepackage[utf8]{inputenc}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Project\_final},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Project\_final}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+
+\begin{document}
+\maketitle
+
+First read in all text and clean and translate/map to a common
+repersentation. I don't know the mapping of the arabic words to the
+transliterated ones but the library is able to shift back and forth.This
+block reads all text in, removes the stop words, and stems and
+transliterates the text to latin characters and then pputs it back into
+the data frame
+
+I first ran this analysis in python which has diffrent cleaning and
+stemming libraries, so if the report differs from the results in some
+ways that may be the root. For functional purpouses it should be the
+same.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(knitr)}
+\NormalTok{master =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{'data.csv'}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{master =}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(master)}
+\KeywordTok{typeof}\NormalTok{(master)}
+\end{Highlighting}
+\end{Shaded}
+
+{[}1{]} ``list''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(arabicStemR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'arabicStemR'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:graphics':
+## 
+##     stem
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wrap =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(chr)\{}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(}\KeywordTok{removeStopWords}\NormalTok{(chr)[}\DecValTok{1}\NormalTok{]))}
+\NormalTok{\}}
+\NormalTok{master}\OperatorTok{$}\NormalTok{transliterated =}\StringTok{ }\KeywordTok{removePunctuation}\NormalTok{(}\KeywordTok{cleanChars}\NormalTok{(}\KeywordTok{transliterate}\NormalTok{(}\KeywordTok{sapply}\NormalTok{(master}\OperatorTok{$}\NormalTok{Text, wrap))))}
+\KeywordTok{kable}\NormalTok{(master[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}rlrl@{}}
+\toprule
+X & Text & Positive. & transliterated\tabularnewline
+\midrule
+\endhead
+0 & أبذل الجهد و العرق و توكل على الله و اطمئن فرزقك مضمون & 1 & abil
+aljhd al3rQ twkl allh aTm5n frzQk mDmwn\tabularnewline
+1 & احُبك ربي & 1 & a7bk rby\tabularnewline
+2 & اللهم عفوك و رضاك و الجنه & 1 & allhm 3fwk rDak aljnh\tabularnewline
+3 & الماء هى الحياة & 1 & almaq hA al7ya0\tabularnewline
+4 & بالفعل لازم كل واحد بيتكلم عن الدين اقل مافيها يلتزم باقل مبادئه
+عشان يكون قدوة مش ييخلي الناس تقول هو ده الدين & 1 & balf3l lazm kl wa7d
+bytklm aldyn mafyha yltzm baQl mbad5h 3Wan ykwn Qdw0 mW yyKly alnas tQwl
+dh aldyn\tabularnewline
+I fir & st ran this analysis in python which has diffrent cleaning and
+stemming libraries, so if the report differs from t & he results i & n
+some ways that may be the root. For functional purpouses it should be
+the same.\tabularnewline
+\bottomrule
+\end{longtable}
+
+Spliting data in to train and test sets, building word frequency tables
+for the positive and negitive words and then building training and
+testing data to feed into naive bayes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(keras)}
+\KeywordTok{library}\NormalTok{(stringr)}
+
+\NormalTok{word_counts <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(}\KeywordTok{unlist}\NormalTok{( }\KeywordTok{strsplit}\NormalTok{(master}\OperatorTok{$}\NormalTok{transliterated, }\StringTok{"\textbackslash{} "}\NormalTok{) )))  }
+\NormalTok{word_counts}\OperatorTok{$}\NormalTok{id =}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\KeywordTok{nrow}\NormalTok{(word_counts))}
+
+\NormalTok{get_int_rep =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(string)\{}
+\NormalTok{  int_rep =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+  \ControlFlowTok{for}\NormalTok{ (x }\ControlFlowTok{in} \KeywordTok{unlist}\NormalTok{(}\KeywordTok{strsplit}\NormalTok{(string, }\StringTok{' '}\NormalTok{)))\{}
+    \ControlFlowTok{if}\NormalTok{ ((x }\OperatorTok{%in%}\StringTok{ }\KeywordTok{unlist}\NormalTok{(word_counts[}\StringTok{'Var1'}\NormalTok{])))\{}
+\NormalTok{      row =}\StringTok{ }\NormalTok{word_counts[word_counts[}\StringTok{'Var1'}\NormalTok{] }\OperatorTok{==}\StringTok{ }\NormalTok{x,]}
+\NormalTok{      int_rep =}\StringTok{ }\KeywordTok{append}\NormalTok{(int_rep, row}\OperatorTok{$}\NormalTok{id)}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{length}\NormalTok{(int_rep) }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{)\{}\KeywordTok{return}\NormalTok{(}\KeywordTok{array}\NormalTok{(}\KeywordTok{pad_sequences}\NormalTok{(}\KeywordTok{list}\NormalTok{(int_rep), }\DataTypeTok{maxlen =} \DecValTok{180}\NormalTok{)))\}}
+  \ControlFlowTok{else}\NormalTok{\{}\KeywordTok{return}\NormalTok{(}\KeywordTok{array}\NormalTok{(}\KeywordTok{pad_sequences}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DecValTok{0}\NormalTok{), }\DataTypeTok{maxlen =} \DecValTok{180}\NormalTok{)))\}}
+\NormalTok{\}}
+
+\NormalTok{int_reps =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (x }\ControlFlowTok{in}\NormalTok{ master}\OperatorTok{$}\NormalTok{transliterated)\{}
+\NormalTok{  int_reps =}\StringTok{ }\KeywordTok{append}\NormalTok{(int_reps, }\KeywordTok{get_int_rep}\NormalTok{(x))}
+\NormalTok{\}}
+
+\NormalTok{t =}\StringTok{ }\KeywordTok{array_reshape}\NormalTok{(int_reps, }\KeywordTok{c}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(master), }\DecValTok{180}\NormalTok{))}
+\NormalTok{master}\OperatorTok{$}\NormalTok{int_rep =}\StringTok{ }\NormalTok{t}
+
+\NormalTok{smp_size <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(}\FloatTok{0.75} \OperatorTok{*}\StringTok{ }\KeywordTok{nrow}\NormalTok{(master))}
+\NormalTok{train_ind <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{seq_len}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(master)), }\DataTypeTok{size =}\NormalTok{ smp_size)}
+\NormalTok{train <-}\StringTok{ }\NormalTok{master[train_ind, ]}
+\NormalTok{test <-}\StringTok{ }\NormalTok{master[}\OperatorTok{-}\NormalTok{train_ind, ]}
+
+\NormalTok{pos_words =}\StringTok{ }\NormalTok{train[train}\OperatorTok{$}\NormalTok{Positive. }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{,]}
+\NormalTok{neg_words =}\StringTok{ }\NormalTok{train[train}\OperatorTok{$}\NormalTok{Positive. }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{,]}
+
+\NormalTok{pos_word_tbl =}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(}\KeywordTok{unlist}\NormalTok{( }\KeywordTok{strsplit}\NormalTok{(pos_words}\OperatorTok{$}\NormalTok{transliterated, }\StringTok{"\textbackslash{} "}\NormalTok{) )))}
+\NormalTok{neg_word_tbl =}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(}\KeywordTok{unlist}\NormalTok{( }\KeywordTok{strsplit}\NormalTok{(neg_words}\OperatorTok{$}\NormalTok{transliterated, }\StringTok{"\textbackslash{} "}\NormalTok{) )))}
+
+\NormalTok{total_words =}\StringTok{ }\KeywordTok{sum}\NormalTok{(word_counts}\OperatorTok{$}\NormalTok{Freq)}
+
+\NormalTok{word_counts}\OperatorTok{$}\NormalTok{log_frequency =}\StringTok{ }\KeywordTok{log}\NormalTok{(word_counts}\OperatorTok{$}\NormalTok{Freq}\OperatorTok{/}\NormalTok{total_words)}
+\NormalTok{pos_word_tbl}\OperatorTok{$}\NormalTok{log_frequency =}\StringTok{ }\KeywordTok{log}\NormalTok{(pos_word_tbl}\OperatorTok{$}\NormalTok{Freq}\OperatorTok{/}\NormalTok{total_words)}
+\NormalTok{neg_word_tbl}\OperatorTok{$}\NormalTok{log_frequency =}\StringTok{ }\KeywordTok{log}\NormalTok{(neg_word_tbl}\OperatorTok{$}\NormalTok{Freq}\OperatorTok{/}\NormalTok{total_words)}
+
+\KeywordTok{kable}\NormalTok{(word_counts[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,], }\DataTypeTok{caption =} \StringTok{'Word frequency Tables'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{Word frequency Tables}\tabularnewline
+\toprule
+Var1 & Freq & id & log\_frequency\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Var1 & Freq & id & log\_frequency\tabularnewline
+\midrule
+\endhead
+0 & 1 & 1 & -9.537123\tabularnewline
+1 & 3 & 2 & -8.438511\tabularnewline
+10 & 3 & 3 & -8.438511\tabularnewline
+١٠٠ & 2 & 4 & -8.843976\tabularnewline
+100 & 4 & 5 & -8.150829\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{kable}\NormalTok{(pos_word_tbl[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,], }\DataTypeTok{caption =}  \StringTok{'Positive words and thier frequency'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrr@{}}
+\caption{Positive words and thier frequency}\tabularnewline
+\toprule
+Var1 & Freq & log\_frequency\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Var1 & Freq & log\_frequency\tabularnewline
+\midrule
+\endhead
+3 & 4 & -8.150829\tabularnewline
+3afyt & 1 & -9.537123\tabularnewline
+3afytk & 1 & -9.537123\tabularnewline
+3almyn & 1 & -9.537123\tabularnewline
+3aly & 1 & -9.537123\tabularnewline
+\bottomrule
+\end{longtable}
+
+Defining slightly modifyed naive bayes function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{naive_b =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(string)\{}
+\NormalTok{  prob_p =}\StringTok{ }\DecValTok{1}
+\NormalTok{  prob_n =}\StringTok{ }\DecValTok{1}
+\NormalTok{  multiplier =}\StringTok{ }\FloatTok{.5}
+  \ControlFlowTok{for}\NormalTok{ (x }\ControlFlowTok{in} \KeywordTok{unlist}\NormalTok{(}\KeywordTok{strsplit}\NormalTok{(string, }\StringTok{' '}\NormalTok{)))\{}
+    \ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{%in%}\StringTok{ }\KeywordTok{unlist}\NormalTok{(pos_word_tbl[}\StringTok{'Var1'}\NormalTok{]))\{}
+\NormalTok{      freq =}\StringTok{ }\NormalTok{pos_word_tbl[pos_word_tbl[}\StringTok{'Var1'}\NormalTok{] }\OperatorTok{==}\StringTok{ }\NormalTok{x,]}
+\NormalTok{      prob_p =}\StringTok{ }\NormalTok{prob_p }\OperatorTok{+}\StringTok{ }\NormalTok{freq}\OperatorTok{$}\NormalTok{log_frequency}
+\NormalTok{    \}}
+    \ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{%in%}\StringTok{ }\KeywordTok{unlist}\NormalTok{(neg_word_tbl[}\StringTok{'Var1'}\NormalTok{]))\{}
+\NormalTok{      freq =}\StringTok{ }\NormalTok{neg_word_tbl[neg_word_tbl[}\StringTok{'Var1'}\NormalTok{] }\OperatorTok{==}\StringTok{ }\NormalTok{x,]}
+\NormalTok{      prob_n =}\StringTok{ }\NormalTok{prob_n }\OperatorTok{+}\StringTok{ }\NormalTok{freq}\OperatorTok{$}\NormalTok{log_frequency}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  \ControlFlowTok{if}\NormalTok{ (prob_n }\OperatorTok{>}\StringTok{ }\NormalTok{prob_p)\{}\KeywordTok{return}\NormalTok{(}\DecValTok{1}\NormalTok{)\}}
+  \ControlFlowTok{else}\NormalTok{\{}\KeywordTok{return}\NormalTok{(}\DecValTok{0}\NormalTok{)\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Running the naive bayes on training and test data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{train}\OperatorTok{$}\NormalTok{guesses =}\StringTok{ }\KeywordTok{sapply}\NormalTok{(}\KeywordTok{as.list}\NormalTok{(train}\OperatorTok{$}\NormalTok{transliterated), naive_b)}
+\NormalTok{test}\OperatorTok{$}\NormalTok{guesses =}\StringTok{ }\KeywordTok{sapply}\NormalTok{(}\KeywordTok{as.list}\NormalTok{(test}\OperatorTok{$}\NormalTok{transliterated), naive_b)}
+\end{Highlighting}
+\end{Shaded}
+
+Evaluation of results Note: The accuracy of this test is suspiciously
+good. I'm not sure if this is a flux or if the transliteration function
+is much more complex than my solution, but I used the accruacies from my
+original code in python in the report because I know the mapping
+function and am much more confident in the reproducability of my
+solution. If I had more time I would be able ot verify the library's
+transliteration function and these results but until this I'll only
+report on what I know to be accurate.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{train_accruacy =}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(train}\OperatorTok{$}\NormalTok{Positive.}\OperatorTok{==}\NormalTok{train}\OperatorTok{$}\NormalTok{guesses,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)) }\OperatorTok{/}\StringTok{ }\KeywordTok{nrow}\NormalTok{(train)}
+\NormalTok{test_accuracy =}\StringTok{ }\KeywordTok{sum}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(test}\OperatorTok{$}\NormalTok{Positive.}\OperatorTok{==}\NormalTok{test}\OperatorTok{$}\NormalTok{guesses,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)) }\OperatorTok{/}\StringTok{ }\KeywordTok{nrow}\NormalTok{(test)}
+\KeywordTok{print}\NormalTok{(}\StringTok{'Train accuracy for modified naive bayes is :'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Train accuracy for modified naive bayes is :"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{train_accruacy}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9827586
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(}\StringTok{'Test accuracy for modified naive bayes is :'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Test accuracy for modified naive bayes is :"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test_accuracy}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8031809
+\end{verbatim}
+
+This chunk implements the RNN. I added a dropout layer to combat
+overfitting but it doesn't help as much as I would like. I belive the
+encoding is less consistent with the R version of this code because when
+I build a RNN with the same architechure, the python version
+outperformed by almost 20\% and was far less volitile.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(keras)}
+\KeywordTok{library}\NormalTok{(tensorflow)}
+\CommentTok{#install_tensorflow(version =  '1.12') #recent version is broken...?}
+\NormalTok{embedding_size =}\StringTok{ }\DecValTok{32}
+\NormalTok{vocab_size =}\StringTok{ }\KeywordTok{nrow}\NormalTok{(word_counts)}
+\NormalTok{max_words =}\StringTok{ }\DecValTok{180}
+
+\NormalTok{model =}\StringTok{ }\KeywordTok{keras_model_sequential}\NormalTok{()}
+\NormalTok{model }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{layer_embedding}\NormalTok{(vocab_size, }\DecValTok{64}\NormalTok{, }\DataTypeTok{input_length =}\NormalTok{ max_words, }\DataTypeTok{name =} \StringTok{'embedding'}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{bidirectional}\NormalTok{(}\KeywordTok{layer_lstm}\NormalTok{(}\DataTypeTok{units =}\DecValTok{64}\NormalTok{, }\DataTypeTok{name =} \StringTok{'reccurent_layer'}\NormalTok{)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{layer_dropout}\NormalTok{(.}\DecValTok{5}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{layer_dense}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DataTypeTok{activation =} \StringTok{'sigmoid'}\NormalTok{, }\DataTypeTok{name =} \StringTok{'output'}\NormalTok{)}
+
+\NormalTok{model }\OperatorTok{%>%}\StringTok{ }\KeywordTok{compile}\NormalTok{(}
+  \DataTypeTok{optimizer =} \StringTok{'adam'}\NormalTok{,}
+  \DataTypeTok{loss =} \StringTok{'binary_crossentropy'}\NormalTok{,}
+  \DataTypeTok{metrics =} \KeywordTok{c}\NormalTok{(}\StringTok{'accuracy'}\NormalTok{)}
+\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ___________________________________________________________________________
+## Layer (type)                     Output Shape                  Param #     
+## ===========================================================================
+## embedding (Embedding)            (None, 180, 64)               426368      
+## ___________________________________________________________________________
+## bidirectional (Bidirectional)    (None, 128)                   66048       
+## ___________________________________________________________________________
+## dropout (Dropout)                (None, 128)                   0           
+## ___________________________________________________________________________
+## output (Dense)                   (None, 1)                     129         
+## ===========================================================================
+## Total params: 492,545
+## Trainable params: 492,545
+## Non-trainable params: 0
+## ___________________________________________________________________________
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X_valid =}\StringTok{ }\NormalTok{train}\OperatorTok{$}\NormalTok{int_rep}
+\NormalTok{y_val =}\StringTok{ }\NormalTok{train}\OperatorTok{$}\NormalTok{Positive.}
+\NormalTok{X_train2 =}\StringTok{ }\NormalTok{test}\OperatorTok{$}\NormalTok{int_rep}
+\NormalTok{y_train2 =}\StringTok{ }\NormalTok{test}\OperatorTok{$}\NormalTok{Positive.}
+
+\NormalTok{history <-}\StringTok{ }\NormalTok{model }\OperatorTok{%>%}\StringTok{ }\KeywordTok{fit}\NormalTok{(}
+\NormalTok{  X_train2, y_train2, }
+  \DataTypeTok{epochs =} \DecValTok{35}\NormalTok{, }\DataTypeTok{batch_size =}\DecValTok{64}\NormalTok{, }
+  \DataTypeTok{validation_split =} \FloatTok{0.2}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This chunk uses a hashmap to find a euclidian distance be occurance of
+individual words. Hashmap is used because its crazy fat compared to
+whatever R lists and columns are made out of. For more details and
+exploratory data analysis check the report and the python document.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#install.packages('hashmap')}
+\KeywordTok{library}\NormalTok{(hashmap)}
+\NormalTok{word_c =}\StringTok{ }\KeywordTok{hashmap}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(word_counts}\OperatorTok{$}\NormalTok{Var1), word_counts}\OperatorTok{$}\NormalTok{id )}
+\NormalTok{find_location =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(string)\{}
+\NormalTok{  map =}\StringTok{ }\KeywordTok{hashmap}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\KeywordTok{nrow}\NormalTok{(word_counts)), }\KeywordTok{numeric}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(word_counts)))}
+  \ControlFlowTok{for}\NormalTok{ (x }\ControlFlowTok{in} \KeywordTok{unlist}\NormalTok{(}\KeywordTok{strsplit}\NormalTok{(string, }\StringTok{' '}\NormalTok{)))\{}
+\NormalTok{      x =}\StringTok{ }\KeywordTok{as.character}\NormalTok{(x)}
+      \ControlFlowTok{if}\NormalTok{ (word_c}\OperatorTok{$}\KeywordTok{has_key}\NormalTok{(x) }\OperatorTok{==}\StringTok{ }\OtherTok{TRUE}\NormalTok{)\{}
+\NormalTok{        id =}\StringTok{ }\NormalTok{word_c[[x]]}
+\NormalTok{        map[[id]] =}\StringTok{ }\NormalTok{map[[id]] }\OperatorTok{+}\StringTok{ }\DecValTok{1}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{c}\NormalTok{(map}\OperatorTok{$}\KeywordTok{values}\NormalTok{()))}
+\NormalTok{\}}
+
+\NormalTok{data =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\NormalTok{num =}\StringTok{ }\DecValTok{1}
+\ControlFlowTok{for}\NormalTok{ (x }\ControlFlowTok{in}\NormalTok{ master}\OperatorTok{$}\NormalTok{transliterated)\{}
+\NormalTok{  data =}\StringTok{ }\KeywordTok{append}\NormalTok{(data, }\KeywordTok{find_location}\NormalTok{(x))}
+\NormalTok{\} }
+
+\NormalTok{data2 =}\StringTok{ }\KeywordTok{array_reshape}\NormalTok{(data, }\DataTypeTok{dim =}\KeywordTok{c}\NormalTok{(}\DecValTok{2011}\NormalTok{,}\KeywordTok{length}\NormalTok{(}\KeywordTok{find_location}\NormalTok{(master}\OperatorTok{$}\NormalTok{transliterated[}\DecValTok{1}\NormalTok{]))))}
+
+\KeywordTok{kable}\NormalTok{(master[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,], }\DataTypeTok{caption =} \StringTok{'master with grouping variable'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in `[<-.data.frame`(`*tmp*`, , isn, value = structure(list(X =
+## structure(c("0", : provided 182 variables to replace 3 variables
+\end{verbatim}
+
+\begin{longtable}[]{@{}rlrlr@{}}
+\caption{master with grouping variable}\tabularnewline
+\toprule
+X & Text & Positive. & transliterated & int\_rep\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+X & Text & Positive. & transliterated & int\_rep\tabularnewline
+\midrule
+\endhead
+0 & أبذل الجهد و العرق و توكل على الله و اطمئن فرزقك مضمون & 1 & abil
+aljhd al3rQ twkl allh aTm5n frzQk mDmwn & 0\tabularnewline
+1 & احُبك ربي & 1 & a7bk rby & 0\tabularnewline
+2 & اللهم عفوك و رضاك و الجنه & 1 & allhm 3fwk rDak aljnh &
+0\tabularnewline
+3 & الماء هى الحياة & 1 & almaq hA al7ya0 & 0\tabularnewline
+4 & بالفعل لازم كل واحد بيتكلم عن الدين اقل مافيها يلتزم باقل مبادئه
+عشان يكون قدوة مش ييخلي الناس تقول هو ده الدين & 1 & balf3l lazm kl wa7d
+bytklm aldyn mafyha yltzm baQl mbad5h 3Wan ykwn Qdw0 mW yyKly alnas tQwl
+dh aldyn & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+This chunk calculated the k-means groupings and appends it to the master
+dataframe which associates it with a tweet. I ran this many times and
+looked through the data manually but the code takes up a lot of spcae so
+this is just one itteration.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kmean =}\StringTok{ }\KeywordTok{kmeans}\NormalTok{(data2, }\DecValTok{5}\NormalTok{)}
+\NormalTok{master}\OperatorTok{$}\NormalTok{group_}\DecValTok{5}\NormalTok{ =}\StringTok{ }\NormalTok{kmean}\OperatorTok{$}\NormalTok{cluster}
+\KeywordTok{kable}\NormalTok{(master[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,], }\DataTypeTok{caption =} \StringTok{'master with grouping variable'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in `[<-.data.frame`(`*tmp*`, , isn, value = structure(list(X =
+## structure(c("0", : provided 183 variables to replace 4 variables
+\end{verbatim}
+
+\begin{longtable}[]{@{}rlrlrr@{}}
+\caption{master with grouping variable}\tabularnewline
+\toprule
+X & Text & Positive. & transliterated & int\_rep &
+group\_5\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+X & Text & Positive. & transliterated & int\_rep &
+group\_5\tabularnewline
+\midrule
+\endhead
+0 & أبذل الجهد و العرق و توكل على الله و اطمئن فرزقك مضمون & 1 & abil
+aljhd al3rQ twkl allh aTm5n frzQk mDmwn & 0 & 0\tabularnewline
+1 & احُبك ربي & 1 & a7bk rby & 0 & 0\tabularnewline
+2 & اللهم عفوك و رضاك و الجنه & 1 & allhm 3fwk rDak aljnh & 0 &
+0\tabularnewline
+3 & الماء هى الحياة & 1 & almaq hA al7ya0 & 0 & 0\tabularnewline
+4 & بالفعل لازم كل واحد بيتكلم عن الدين اقل مافيها يلتزم باقل مبادئه
+عشان يكون قدوة مش ييخلي الناس تقول هو ده الدين & 1 & balf3l lazm kl wa7d
+bytklm aldyn mafyha yltzm baQl mbad5h 3Wan ykwn Qdw0 mW yyKly alnas tQwl
+dh aldyn & 0 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+
+\end{document}
